@@ -33,13 +33,14 @@ class WordAnalyzer:
                         if word in self.__frequencies:
                             self.__frequencies[word] += 1
                         
-                    else:
-                        self.___frequencies[word] = 1
-                        
+                        else:
+                            self.__frequencies[word] = 1
+
             return True
 
         except FileNotFoundError:
             print("Error: File not found.")
+            return False
             
     def print_report(self):
         sorted_words = sorted(self.__frequencies.keys())
@@ -48,9 +49,53 @@ class WordAnalyzer:
         for word in sorted_words:
             print(f"{word:<6} :: {self.__frequencies[word]}")
             
-    
+def main():
+        base_path = Path.cwd()
+        
+        files = {
             
+        "1": ("Moby Dick (Chapter 1)", base_path / "moby_dick_ch1.txt"),
+        "2": ("Frankenstein (Chapter 1)", base_path / "frankenstein_ch1.txt"),
+        "3": ("Alice in Wonderland (Chapter 1)", base_path / "alice_ch1.txt"),
+        "4": ("Pride and Prejudice (Chapter 1)", base_path / "pride_ch1.txt")
+    }
+        
+        while True:
             
+            print("\n--- Word Analyzer ---")
+            print("Please select a file to analyze:")
+            
+            for key, (name, _) in files.items():
+                print(f"{key}. {name}")
+                
+            print("5. Exit\n")
+            
+            choice = input("Enter your choice (1-5):")
+            
+            if choice == "5":
+                
+                print("\nGoodbye!")
+                break
+            
+            elif choice not in files:
+                print("\nInvalid choice. Please select from 1-5.")
+                print("\nPress Enter to return to the menu... ")
+                
+            else:
+                name, filepath = files[choice]
+                
+                print(f"\nProcessing '{filepath.name}'...\n")
+                
+                analyzer = WordAnalyzer(filepath)
+                
+                if analyzer.process_file():
+                    analyzer.print_report()
+                    
+                    input("\nPress Enter to return to the menu...")
+                
+            
+if __name__ == "__main__":
+    main()
         
             
         
