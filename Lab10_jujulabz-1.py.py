@@ -23,7 +23,7 @@ class WordAnalyzer:
             
             translator = str.maketrans('','',string.punctuation)
             
-            with self.__filepath.open('r') as file:
+            with self.__filepath.open('r', encoding='utf-8') as file: 
                 for line in file:
                     clean_line = line.translate(translator).lower()
                     
@@ -54,10 +54,10 @@ def main():
         
         files = {
             
-        "1": ("Moby Dick (Chapter 1)", base_path / "moby_dick_ch1.txt"),
-        "2": ("Frankenstein (Chapter 1)", base_path / "frankenstein_ch1.txt"),
-        "3": ("Alice in Wonderland (Chapter 1)", base_path / "alice_ch1.txt"),
-        "4": ("Pride and Prejudice (Chapter 1)", base_path / "pride_ch1.txt")
+        "1": ("Monte Cristo", base_path / "monte_cristo.txt"),
+        "2": ("Princess Mars", base_path / "Princess_maes.txt"),
+        "3": ("Tarzan", base_path / "Tarzan.txt"),
+        "4": ("Treasure Island", base_path / "treasure_island.txt")
     }
         
         while True:
