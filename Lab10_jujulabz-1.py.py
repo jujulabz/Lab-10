@@ -83,7 +83,7 @@ def main():
                 
             else:
                 name, filepath = files[choice]
-                
+                print("Trying to open:", filepath)
                 print(f"\nProcessing '{filepath.name}'...\n")
                 
                 analyzer = WordAnalyzer(filepath)
