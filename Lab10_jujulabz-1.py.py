@@ -55,7 +55,7 @@ def main():
         files = {
             
         "1": ("Monte Cristo", base_path / "monte_cristo.txt"),
-        "2": ("Princess Mars", base_path / "Princess_maes.txt"),
+        "2": ("Princess Mars", base_path / "Princess_mars.txt"),
         "3": ("Tarzan", base_path / "Tarzan.txt"),
         "4": ("Treasure Island", base_path / "treasure_island.txt")
     }
